@@ -1,5 +1,8 @@
+import 'package:e_commerce_app/core/utils/Constant.dart';
 import 'package:e_commerce_app/core/utils/assets.dart';
 import 'package:e_commerce_app/features/SignUp/presentaton/view/Sign_up.dart';
+import 'package:e_commerce_app/features/home/presentation/view/home_view.dart';
+import 'package:e_commerce_app/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +21,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           seconds: 3,
         ), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const SignUpView();
+        return Constant.token != null && Constant.token != " "
+            ? const LayoutView()
+            : const SignUpView();
       }));
     });
     super.initState();

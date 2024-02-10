@@ -33,7 +33,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
           hintText: hintText,
           prefixIconColor: Colors.grey,
-          fillColor: fillcolor ?? Colors.white,
+          fillColor: const Color(0xffEFE4F1),
           // suffixIcon: Icon(icon),
           filled: true,
           // fillColor: Colors.white,
@@ -48,7 +48,7 @@ class CustomTextField extends StatelessWidget {
 
   OutlineInputBorder outineMethod() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: Colors.grey));
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(color: Colors.white));
   }
 }

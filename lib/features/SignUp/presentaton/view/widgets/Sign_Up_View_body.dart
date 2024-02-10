@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/core/function/Responsive_text.dart';
+import 'package:e_commerce_app/core/utils/Constant.dart';
+import 'package:e_commerce_app/core/widgets/CustomButtomNav.dart';
 import 'package:e_commerce_app/core/widgets/CustomButton.dart';
 import 'package:e_commerce_app/core/widgets/CustomSizedBox.dart';
 import 'package:e_commerce_app/core/widgets/CustomText.dart';
@@ -51,17 +53,25 @@ class SignUpViewBody extends StatelessWidget {
           key: formKey,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CustomSizeBox(
-                    h: .2,
+                    h: .15,
                   ),
                   CustomText(
                     text: 'Sign Up',
-                    fontSize: RespText.getResponsiveFontSize(context, 25),
+                    fontSize: RespText.getResponsiveFontSize(context, 30),
                     fontWeight: FontWeight.w900,
+                  ),
+                  const CustomSizeBox(
+                    h: .01,
+                  ),
+                  CustomText(
+                    text: 'Create your account',
+                    fontSize: RespText.getResponsiveFontSize(context, 18),
+                    fontWeight: FontWeight.w900,
+                    color: Colors.grey,
                   ),
                   const CustomSizeBox(
                     h: .06,
@@ -79,7 +89,7 @@ class SignUpViewBody extends StatelessWidget {
                     },
                   ),
                   const CustomSizeBox(
-                    h: .01,
+                    h: .02,
                   ),
                   CustomTextField(
                     controller: emailController,
@@ -94,7 +104,7 @@ class SignUpViewBody extends StatelessWidget {
                     },
                   ),
                   const CustomSizeBox(
-                    h: .01,
+                    h: .02,
                   ),
                   CustomTextField(
                     controller: phoneController,
@@ -109,7 +119,7 @@ class SignUpViewBody extends StatelessWidget {
                     },
                   ),
                   const CustomSizeBox(
-                    h: .01,
+                    h: .02,
                   ),
                   CustomTextField(
                     controller: passwordController,
@@ -128,6 +138,7 @@ class SignUpViewBody extends StatelessWidget {
                     h: .04,
                   ),
                   CustomButton(
+                    color: Constant.defaultColor,
                     text: state is SignUpLoading ? "Loading......" : 'Register',
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
@@ -138,6 +149,20 @@ class SignUpViewBody extends StatelessWidget {
                             password: passwordController.text);
                       }
                     },
+                  ),
+                  const CustomSizeBox(
+                    h: .01,
+                  ),
+                  CustomButtomNav(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const LoginView();
+                        },
+                      ));
+                    },
+                    text1: 'Login',
+                    text2: 'Already hava an account ?',
                   )
                 ],
               ),
