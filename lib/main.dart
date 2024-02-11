@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/core/utils/Constant.dart';
 import 'package:e_commerce_app/features/SignUp/presentaton/manager/Sign_up/sign_up_cubit.dart';
 import 'package:e_commerce_app/features/Splash/presentation/view/Splash_view.dart';
+import 'package:e_commerce_app/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:e_commerce_app/features/layout/presentation/manager/Layout/layout_cubit.dart';
 import 'package:e_commerce_app/features/login/presentation/manager/Login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,12 @@ class EcommerceApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LayoutCubit(),
+        ),
+        BlocProvider(
+          create: (context) => HomeCubit()
+            ..getBannerData()
+            ..getProduct()
+            ..getCategory(),
         ),
       ],
       child: const MaterialApp(
